@@ -5,7 +5,9 @@ var MAX_HEIGHT = 150;
 var GAP = 50;
 var BAR_WIDTH = 40;
 var START_X = 160;
+var START_Y = 90;
 var TEXT_Y = 260;
+var TIME_Y = 80
 
 window.renderStatistics = function(ctx, names, times) {
   ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
@@ -29,13 +31,15 @@ for (var i = 1; i < times.length; i++) {
 for (var j = 0; j < names.length; j++) {
 var barHeight = (MAX_HEIGHT * times[j]) / maxValue;
 
-if (names[j] = 'Вы') {
+if (names[j] === 'Вы') {
   ctx.fillStyle = 'rgba(255, 0, 0, 1)';
+} else {
+  ctx.fillStyle = 'hsl(240, 100%, ' + Math.random() * 100 + '%' +')';
 }
-names[j] = times[j];
-ctx.fillStyle = 'hsl(240, 100%, (MAX_HEIGHT * times[j]) / maxValue)';
-ctx.fillText(names[j] + 1, START_X + (BAR_WIDTH + GAP) * j, TEXT_Y);
-ctx.fillRect(START_X + (BAR_WIDTH + GAP) * j, barHeight);
+ctx.fillRect(START_X + (BAR_WIDTH + GAP) * j, START_Y + (MAX_HEIGHT - barHeight), BAR_WIDTH, barHeight);
+ctx.fillStyle = 'black';
+ctx.fillText(names[j], START_X + (BAR_WIDTH + GAP) * j, TEXT_Y);
+ctx.fillText(Math.floor(times[j]), START_X + (BAR_WIDTH + GAP) * j, TIME_Y + (MAX_HEIGHT - barHeight));
 }
 };
 
