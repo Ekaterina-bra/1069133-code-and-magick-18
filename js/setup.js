@@ -5,21 +5,21 @@ userDialog.classList.remove('hidden');
 var WIZARDS_NUMBER = 4;
 var WIZARD_NAMES = ['Иван', 'Хуан Себастьян', 'Мария', 'Кристоф', 'Виктор', 'Юлия', 'Люпита', 'Вашингтон'];
 var WIZARD_LASTNAMES = ['да Марья', 'Верон', 'Мирабелла', 'Вальц', 'Онопко', 'Топольницкая', 'Нионго', 'Ирвинг'];
-var WIZARD_COATCOLOR = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
-var WIZARD_EYESCOLOR = ['black', 'red', 'blue', 'yellow', 'green'];
+var WIZARD_COATCOLORS = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
+var WIZARD_EYESCOLORS = ['black', 'red', 'blue', 'yellow', 'green'];
 
 var getRandomArrElement = function (wizards) {
-  var rand = Math.random() * wizards.length;
+  var rand = Math.floor(Math.random() * wizards.length);
   return wizards[rand];
 };
 
 var generateWizard = function () {
   var nameWizard = getRandomArrElement(WIZARD_NAMES);
   var surnameWizard = getRandomArrElement(WIZARD_LASTNAMES);
-  var coatColorWizard = getRandomArrElement(WIZARD_COATCOLOR);
-  var eyesColorWizard = getRandomArrElement(WIZARD_EYESCOLOR);
+  var coatColorWizard = getRandomArrElement(WIZARD_COATCOLORS);
+  var eyesColorWizard = getRandomArrElement(WIZARD_EYESCOLORS);
   return {
-    name: nameWizard + '' + surnameWizard,
+    name: nameWizard + ' ' + surnameWizard,
     coatColor: coatColorWizard,
     eyesColor: eyesColorWizard
   };
